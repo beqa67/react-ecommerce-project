@@ -8,7 +8,7 @@ const App = () => {
 
   const Shop = () => {
     return (
-      <div>shop page</div>
+      <div>shop page dfsgfg</div>
     )
   }
 
@@ -23,5 +23,4 @@ const App = () => {
     </Routes>
   );
 };
-
 export default App;

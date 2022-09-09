@@ -8,7 +8,9 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import './sign-in-form.style.scss'
+
+
+import style  from './sign-in-form.style.module.scss'
 
 const defaultFormFields = {
   email: '',
@@ -24,8 +26,8 @@ const SignInForm = () => {
   }
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup()
-    await createUserDocumentFromAuth(user)
+    await signInWithGooglePopup()
+
   }
 
   const handleSubmit = async (event) => {
@@ -33,8 +35,8 @@ const SignInForm = () => {
 
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password)
-      console.log("response", response)
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password)
+      // setCurrentUser(user)
       resetFields()
     } catch (error) {
       console.log("error", error)
@@ -48,11 +50,11 @@ const SignInForm = () => {
   }
 
   return (
-    <div className='sign-up-container'>
+    <div className={style['sign-up-container']}>
       <h2>Already have an Account ? </h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
-
+       <div> {email}</div>
         <FormInput label="email" type="email" onChange={handleChange} required name="email" value={email} />
 
         <FormInput label="Passowrd" type="password" onChange={handleChange} required name="password" value={password}/>
