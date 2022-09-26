@@ -39,6 +39,27 @@ export const CartContext = createContext({
   cartTotal: 0
 })
 
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+  cartCount: 0,
+  cartTotal: 0
+}
+
+const cartReducer = (state, action) => {
+  const {type, payload} = action
+
+  switch (type){
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+
+      }
+    default:
+      throw new Error(`Unhandled Type ${type} in userReducer`)
+  }
+}
+
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [cartItems, setCartItems] = useState([])

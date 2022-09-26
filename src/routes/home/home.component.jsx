@@ -1,4 +1,6 @@
+import {Fragment} from "react";
 import Directory from "../../components/directory/directory.component";
+import styles from "../navigation/Navigation.module.scss";
 
 const Home = () => {
   const categories = [
@@ -30,7 +32,9 @@ const Home = () => {
   ]
 
   return (
-    <Directory categories={categories} />
+    <div className={styles.navigation}>
+     <Directory  categories={categories} />
+    </div>
   );
 };
 
